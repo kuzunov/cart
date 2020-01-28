@@ -10,9 +10,9 @@ class NewForm extends Component {
   render() {
     return (
       <form
-        onSubmit={event => {
+        onSubmit={e => {
           this.props.onNew(this.item.value);
-          event.preventDefault();
+          e.preventDefault();
         }}
       >
         <label>
