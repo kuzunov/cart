@@ -1,5 +1,14 @@
-const navbar = () => {
-  return 1;
-};
+import React, { Component } from "react";
 
-export default navbar;
+class NavBar extends Component {
+  state = {};
+  render() {
+    return (
+      <React.Fragment>
+        <div>Number of items: {this.props.num} </div>
+      </React.Fragment>
+    );
+  }
+}
+
+export default NavBar;
