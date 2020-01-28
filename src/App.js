@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import NavBar from "./components/navbar";
+import Items from "./components/items";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    items: [
+      { id: 1, body: "item 1" },
+      { id: 2, body: "item 2" },
+      { id: 3, body: "item 3" },
+      { id: 4, body: "item 4" }
+    ]
+  };
+  handleDelete = id => {
+    const items = this.state.items.filter(c => c.id !== id);
+    this.setState({ items });
+  };
+  render() {
+    return (
+      <React.Fragment>
+        <NavBar />
+        <React.Fragment>
+          <Items onDelete={this.handleDelete} items={this.state.items} />
+        </React.Fragment>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
